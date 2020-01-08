@@ -14,7 +14,9 @@ class Reason extends Command {
     }
 
     async run(message, args) {
-        const modlog = this.client.channels.find(channel => channel.name === 'mod-logs');
+        const modlog = this.client.channels.find(
+            channel => channel.id == process.env.MODLOGSCHANNEL
+        );
         const caseNum = args.shift();
         const newReason = args.join(' ');
 

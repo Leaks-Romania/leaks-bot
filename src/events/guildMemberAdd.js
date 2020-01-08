@@ -9,7 +9,7 @@ module.exports = class {
         if (member.user.bot || member.guild.id !== process.env.SERVERID) return;
 
         member.guild.channels
-            .find(c => c.name === 'bun-venit')
+            .find(c => c.id == process.env.WELCOMECHANNEL)
             .send(
                 `Salut <@${member.user.id}>, bine ai venit pe ${member.guild.name}. :wave:`
             )
@@ -24,10 +24,15 @@ module.exports = class {
             .setThumbnail('https://i.imgur.com/2OM81ez.png');
 
         member.guild.channels
-            .find(c => c.name === 'general')
+            .find(c => c.id == process.env.GENERALCHANNEL)
             .send(welcomeEmbed)
             .then(msg => msg.delete(10000))
             .catch(console.error);
+
+        let memberRole = member.guild.roles.find(r => r.name === 'Members');
+        if (!memberRole) return;
+
+        await member.addRole(memberRole.id);
 
         for (let i in this.client.mutes) {
             let guildID = this.client.mutes[i].guild;

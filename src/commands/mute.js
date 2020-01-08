@@ -28,7 +28,9 @@ class Mute extends Command {
         if (target.roles.has(muteRole.id))
             return pushError(message, 'Membrul menționat este adus deja la tăcere.');
 
-        const modlog = this.client.channels.find(channel => channel.name === 'mod-logs');
+        const modlog = this.client.channels.find(
+            channel => channel.id == process.env.MODLOGSCHANNEL
+        );
         const caseNum = await getCaseNum(this.client, modlog);
 
         if (!modlog) return pushError(message, `Nu am găsit canalul **mod-logs**.`);

@@ -20,7 +20,9 @@ class Ban extends Command {
         );
         if (!target) return pushError(message, 'Membrul menționat nu se află pe server.');
 
-        const modlog = this.client.channels.find(channel => channel.name === 'mod-logs');
+        const modlog = this.client.channels.find(
+            channel => channel.id == process.env.MODLOGSCHANNEL
+        );
         const caseNum = await getCaseNum(this.client, modlog);
 
         if (!modlog) return pushError(message, `Nu am găsit canalul **mod-logs**.`);

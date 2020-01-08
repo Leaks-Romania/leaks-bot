@@ -27,7 +27,7 @@ class Unban extends Commands {
             if (!Reason) Reason = `Fără motiv.`;
 
             const modlog = this.client.channels.find(
-                channel => channel.name === 'mod-logs'
+                channel => channel.id == process.env.MODLOGSCHANNEL
             );
             const caseNum = await getCaseNum(this.client, modlog);
 

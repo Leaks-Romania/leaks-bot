@@ -6,7 +6,7 @@ module.exports = class {
     async run(member) {
         if (member.user.bot || member.guild.id !== process.env.SERVERID) return;
         member.guild.channels
-            .find(c => c.name === 'bun-venit')
+            .find(c => c.id == process.env.WELCOMECHANNEL)
             .send(`<@${member.user.id}> a iesit de pe server.`)
             .catch(console.error);
     }
