@@ -22,13 +22,20 @@ class Whois extends Command {
         var _createdAt = new Date(target.createdAt);
         var _joinedAt = new Date(user.joinedAt);
 
+        var roles = user.roles
+            .map(role => role.name)
+            .filter(everyoneRole => everyoneRole !== '@everyone')
+            .join(', ');
+
+        var username = user.nickname !== null ? user.nickname : 'None';
+
         let userEmbed = new RichEmbed()
             .setTitle(`Utilizator ${target.tag}`)
             .setColor('#0071ff')
             .setDescription(
-                `ID: ${user.id}\n\nUsername: ${
-                    user.nickname !== null ? user.nickname : 'None'
-                }\nCont înregistrat acum ${getNiceTime(
+                `ID: ${
+                    user.id
+                }\n\nUsername: ${username}\nCont înregistrat acum ${getNiceTime(
                     _createdAt,
                     currentDate,
                     3,
@@ -38,9 +45,9 @@ class Whois extends Command {
                     currentDate,
                     3,
                     true
-                )}\nRoluri deținute: ${user.roles
-                    .map(roles => roles.name)
-                    .join(', ')}\nStatus: ${target.presence.status}`
+                )}\nRoluri deținute: ${roles.length > 0 ? roles : 'None'}\nStatus: ${
+                    target.presence.status
+                }`
             )
             .setThumbnail(target.displayAvatarURL);
         message.channel.send(userEmbed);
