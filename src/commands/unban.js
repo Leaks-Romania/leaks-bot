@@ -53,7 +53,7 @@ class Unban extends Commands {
                         )
                         .setFooter(`Case ${caseNum}`)
                         .setTimestamp()
-                        .setThumbnail('https://i.imgur.com/AggQmWq.png');
+                        .setThumbnail('https://i.imgur.com/kHKcms1.png');
                     message.channel.send(unbanEmbed);
 
                     const logEmbed = new RichEmbed()
@@ -63,7 +63,7 @@ class Unban extends Commands {
                         )
                         .setFooter(`Case ${caseNum}`)
                         .setTimestamp()
-                        .setThumbnail('https://i.imgur.com/AggQmWq.png');
+                        .setThumbnail('https://i.imgur.com/kHKcms1.png');
                     this.client.channels.get(modlog.id).send(logEmbed);
                 } else if (bans.some(u => User.includes(u.id))) {
                     message.guild.unban(User, Reason);
@@ -76,7 +76,7 @@ class Unban extends Commands {
                         )
                         .setFooter(`Case ${caseNum}`)
                         .setTimestamp()
-                        .setThumbnail('https://i.imgur.com/AggQmWq.png');
+                        .setThumbnail('https://i.imgur.com/kHKcms1.png');
                     message.channel.send(unbanEmbed2);
 
                     const logEmbed2 = new RichEmbed()
@@ -86,7 +86,7 @@ class Unban extends Commands {
                         )
                         .setFooter(`Case ${caseNum}`)
                         .setTimestamp()
-                        .setThumbnail('https://i.imgur.com/AggQmWq.png');
+                        .setThumbnail('https://i.imgur.com/kHKcms1.png');
                     this.client.channels.get(modlog.id).send(logEmbed2);
                 } else {
                     return pushError(
