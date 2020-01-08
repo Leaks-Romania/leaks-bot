@@ -4,7 +4,8 @@
     "description": "Nu ca se fura.",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "init": "npm i --save discord.js dotenv-flow klaw cpu-stat os"
     },
     "repository": {
         "type": "git",
