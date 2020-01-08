@@ -41,7 +41,7 @@ class Ban extends Command {
             )
             .setFooter(`Case ${caseNum}`)
             .setTimestamp()
-            .setThumbnail('https://i.imgur.com/Lmdk7KV.png');
+            .setThumbnail('https://i.imgur.com/NMci9Np.png');
         message.channel.send(banEmbed);
 
         const logEmbed = new RichEmbed()
@@ -51,7 +51,7 @@ class Ban extends Command {
             )
             .setFooter(`Case ${caseNum}`)
             .setTimestamp()
-            .setThumbnail('https://i.imgur.com/Lmdk7KV.png');
+            .setThumbnail('https://i.imgur.com/NMci9Np.png');
         this.client.channels.get(modlog.id).send(logEmbed);
 
         message.guild.member(target).ban(reason);
