@@ -7,6 +7,7 @@ class LeaksBot extends Client {
 
         this.commands = new Collection();
         this.aliases = new Collection();
+        this.mutes = require('../../mutes.json');
     }
 
     loadCommand(cmdPath, cmdName) {

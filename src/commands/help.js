@@ -34,7 +34,7 @@ class Help extends Command {
                     : -1
             );
             sorted.forEach(c => {
-                const cat = c.help.category.toUpperCase();
+                const cat = c.help.category.toProperCase();
 
                 if (currentCategory !== cat) {
                     output += `**${cat}**\n`;
