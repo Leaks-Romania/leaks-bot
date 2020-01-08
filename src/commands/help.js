@@ -47,9 +47,13 @@ class Help extends Command {
                 }\n`;
             });
 
-            helpEmbed.setDescription(
-                `Folosește /help [comanda] pentru mai multe detalii\n\n${output}`
-            );
+            helpEmbed
+                .setDescription(
+                    `Folosește /help [comanda] pentru mai multe detalii\n\n${output}`
+                )
+                .setFooter('Creat special pentru comunitatea Leaks România')
+                .setThumbnail('https://i.imgur.com/2OM81ez.png')
+                .setTimestamp();
             message.channel.send(helpEmbed);
         } else {
             let command = args[0];
@@ -80,7 +84,10 @@ class Help extends Command {
                             ? command.conf.permissions.join(', ')
                             : 'Nu au fost setate permisiuni.') +
                         '**'
-                );
+                )
+                .setFooter('Creat special pentru comunitatea Leaks România')
+                .setThumbnail('https://i.imgur.com/2OM81ez.png')
+                .setTimestamp();
             message.channel.send(_helpEmbed);
         }
     }
