@@ -33,16 +33,16 @@ class Mute extends Command {
 
         if (!modlog) return pushError(message, `Nu am găsit canalul **mod-logs**.`);
 
+        if (!args[1] || args[1].length < 0)
+            return pushError(
+                message,
+                `Nu ați introdus timpul pentru care vreți să-l aduceți la tăcere pe ${target}.`
+            );
+
         var returnTime, timeMeasure;
 
         timeMeasure = args[1].substring(args[1].length - 1, args[1].length);
         returnTime = args[1].substring(0, args[1].length - 1);
-
-        if (!timeMeasure)
-            return pushError(
-                message,
-                'Nu ați introdus timpul pentru care vreți să-l aduceți la tăcere pe membrul menționat.'
-            );
 
         switch (timeMeasure) {
             case 's':
@@ -62,8 +62,7 @@ class Mute extends Command {
                 break;
 
             default:
-                returnTime = returnTime;
-                break;
+                return pushError(message, `Invalid time symbol. (s, m, h, d)`);
         }
 
         this.client.mutes[target.id] = {

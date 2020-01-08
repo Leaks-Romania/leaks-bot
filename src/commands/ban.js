@@ -10,7 +10,7 @@ class Ban extends Command {
             description: 'Interzice un membru pe server.',
             category: 'Moderation',
             usage: 'ban <@target> <reason>',
-            permissions: ['ADMINISTRATOR']
+            permissions: ['BAN_MEMBERS']
         });
     }
 

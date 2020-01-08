@@ -7,7 +7,7 @@ class Unban extends Commands {
     constructor(client) {
         super(client, {
             name: 'unban',
-            description: 'Sterge pe cineva din lista de interziceri.',
+            description: 'Sterge pe cineva de pe lista de interziceri.',
             category: 'System',
             usage: 'unban <target/id> <reason>',
             aliases: ['ADMINISTRATOR']
