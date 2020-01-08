@@ -9,8 +9,7 @@ class Help extends Command {
             description: 'Afișează toate comenzile disponibile în funcție de categorii.',
             category: 'Ajutor',
             usage: 'help <command>',
-            aliases: ['ajutor', 'comenzi'],
-            permissions: ['ADMINISTRATOR', 'KICK_MEMBERS', 'BAN_MEMBERS']
+            aliases: ['ajutor', 'comenzi']
         });
     }
 

@@ -16,11 +16,12 @@ class Avatar extends Command {
             let msg = await message.channel.send('Se generează avatarul...');
             let mentionedUser = message.mentions.users.first() || message.author;
 
-            let embed = new RichEmbed()
-                .setImage(mentionedUser.displayAvatarURL)
-                .setColor('#0071ff')
-                .setTitle(`Avatar - ${message.author.tag}`);
-            message.channel.send(embed);
+            message.channel.send(
+                '```Avatar - ' +
+                    mentionedUser.tag +
+                    '```' +
+                    mentionedUser.displayAvatarURL
+            );
 
             msg.delete();
         } catch (e) {
