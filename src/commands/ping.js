@@ -4,7 +4,7 @@ class Ping extends Commands {
     constructor(client) {
         super(client, {
             name: 'ping',
-            description: 'Latență și timp de răspuns al API-ului.',
+            description: 'Afișează latență și timpul de răspuns al API-ului.',
             category: 'Diverse',
             aliases: ['pong']
         });
