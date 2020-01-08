@@ -128,7 +128,4 @@ function getNiceTime(fromDate, toDate, levels, prefix) {
     return returnString;
 }
 
-module.exports = {
-    pushError: pushError,
-    getNiceTime: getNiceTime
-};
+module.exports = { pushError, getNiceTime };
