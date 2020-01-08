@@ -8,7 +8,7 @@ class Help extends Command {
             name: 'help',
             description: 'Afișează toate comenzile disponibile în funcție de categorii.',
             category: 'Ajutor',
-            usage: 'help [command]',
+            usage: 'help <command>',
             aliases: ['ajutor', 'comenzi'],
             permissions: ['ADMINISTRATOR', 'KICK_MEMBERS', 'BAN_MEMBERS']
         });
@@ -25,6 +25,7 @@ class Help extends Command {
             const helpEmbed = new RichEmbed();
 
             helpEmbed.setTitle('Comenzi disponibile');
+            helpEmbed.setColor('#0071ff');
 
             const sorted = this.client.commands.sort((p, c) =>
                 p.help.category > c.help.category
@@ -41,9 +42,9 @@ class Help extends Command {
                     currentCategory = cat;
                 }
 
-                output += `> ${c.help.name} ▸ ${' '.repeat(
-                    longest - c.help.name.length
-                )} ${c.help.description}\n`;
+                output += `${c.help.name} ▸ ${' '.repeat(longest - c.help.name.length)} ${
+                    c.help.description
+                }\n`;
             });
 
             helpEmbed.setDescription(
@@ -63,16 +64,17 @@ class Help extends Command {
 
             const _helpEmbed = new RichEmbed()
                 .setTitle(`Comanda ${command.help.name}`)
+                .setColor('#0071ff')
                 .setDescription(
-                    `${command.help.description}\n\n > Exemplu de folosire: ` +
+                    `${command.help.description}\n\nExemplu de folosire: ` +
                         '**' +
                         command.help.usage +
-                        '**\n> Prescurtări: ' +
+                        '**\nPrescurtări: ' +
                         '**' +
                         (command.conf.aliases.length > 0
                             ? command.conf.aliases.join(', ')
                             : 'Nu au fost setate prescurtari.') +
-                        '**\n> Permisiuni: ' +
+                        '**\nPermisiuni: ' +
                         '**' +
                         (command.conf.permissions.length > 0
                             ? command.conf.permissions.join(', ')

@@ -7,7 +7,7 @@ class Avatar extends Command {
             name: 'avatar',
             description: 'Afișează avatarul dvs. sau a-l membrului menționat',
             category: 'Diverse',
-            usage: 'avatar [@target]'
+            usage: 'avatar <@target>'
         });
     }
 
@@ -18,6 +18,7 @@ class Avatar extends Command {
 
             let embed = new RichEmbed()
                 .setImage(mentionedUser.displayAvatarURL)
+                .setColor('#0071ff')
                 .setTitle(`Avatar - ${message.author.tag}`);
             message.channel.send(embed);
 
