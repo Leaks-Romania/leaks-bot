@@ -1,23 +1,5 @@
-const { RichEmbed } = require('discord.js');
-
 function pushError(message, errMsg) {
-    const errorEmbed = new RichEmbed();
-
-    errorEmbed.setTitle('Eroare');
-    errorEmbed.setDescription(errMsg);
-    errorEmbed.setColor('#0071ff');
-
-    message.channel.send(errorEmbed);
-}
-
-function pushExample(message, usageMsg) {
-    const usageEmbed = new RichEmbed();
-
-    usageEmbed.setTitle('Exemplu de folosire');
-    usageEmbed.setDescription(usageMsg);
-    usageEmbed.setColor('#0071ff');
-
-    message.channel.send(usageEmbed);
+    message.reply(errMsg);
 }
 
 function getNiceTime(fromDate, toDate, levels, prefix) {
@@ -148,6 +130,5 @@ function getNiceTime(fromDate, toDate, levels, prefix) {
 
 module.exports = {
     pushError: pushError,
-    pushExample: pushExample,
     getNiceTime: getNiceTime
 };

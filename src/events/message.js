@@ -41,8 +41,10 @@ module.exports = class {
 
         if (!cmd) return;
 
-        if (!message.member.hasPermission(...cmd.conf.permissions))
-            return message.reply(`Nu ai acces la aceasta comanda.`);
+        if (cmd.conf.permissions.length > 0) {
+            if (!message.member.hasPermission(...cmd.conf.permissions))
+                return message.reply(`Nu ai acces la aceasta comanda.`);
+        }
 
         cmd.run(message, args);
     }

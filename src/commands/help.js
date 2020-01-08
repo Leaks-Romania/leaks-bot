@@ -42,7 +42,7 @@ class Help extends Command {
                     currentCategory = cat;
                 }
 
-                output += `${c.help.name} ▸ ${' '.repeat(longest - c.help.name.length)} ${
+                output += `${c.help.name} ➝ ${' '.repeat(longest - c.help.name.length)} ${
                     c.help.description
                 }\n`;
             });
