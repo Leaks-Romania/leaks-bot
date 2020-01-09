@@ -19,11 +19,14 @@
     "homepage": "https://github.com/LeonardSSH/leaks-bot#readme",
     "dependencies": {
         "chalk": "^3.0.0",
+        "common-tags": "^1.8.0",
         "cpu-stat": "^2.0.1",
         "discord.js": "^11.5.1",
         "dotenv-flow": "^3.1.0",
         "klaw": "^3.0.0",
-        "os": "^0.1.1"
+        "node-fetch": "^2.6.0",
+        "os": "^0.1.1",
+        "random-puppy": "^1.1.0"
     },
     "prettier": {
         "printWidth": 90,
