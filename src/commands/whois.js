@@ -32,22 +32,24 @@ class Whois extends Command {
         let userEmbed = new RichEmbed()
             .setTitle(`Utilizator ${target.tag}`)
             .setColor('#0071ff')
-            .setDescription(
-                `ID: ${
-                    user.id
-                }\n\nUsername: ${username}\nCont înregistrat acum ${getNiceTime(
-                    _createdAt,
-                    currentDate,
-                    3,
-                    true
-                )}\nPe server de ${getNiceTime(
+            .setDescription(`ID: ${user.id}`)
+            .addField(
+                'Member Info',
+                `Username: ${username}\nPe server de ${getNiceTime(
                     _joinedAt,
                     currentDate,
                     3,
                     true
-                )}\nRoluri deținute: ${roles.length > 0 ? roles : 'None'}\nStatus: ${
-                    target.presence.status
-                }`
+                )}\nRoluri deținute: ${roles.length > 0 ? roles : 'None'}\n`
+            )
+            .addField(
+                'User Info',
+                `Cont înregistrat acum ${getNiceTime(
+                    _createdAt,
+                    currentDate,
+                    3,
+                    true
+                )}\nBot: ${target.bot ? 'Yes' : 'No'}\nStatus: ${target.presence.status}`
             )
             .setThumbnail(target.displayAvatarURL);
         message.channel.send(userEmbed);

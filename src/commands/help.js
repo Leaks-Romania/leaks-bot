@@ -48,7 +48,7 @@ class Help extends Command {
 
             helpEmbed
                 .setDescription(
-                    `Folosește /help [comanda] pentru mai multe detalii\n\n${output}`
+                    `Folosește /help [comanda] pentru mai multe detalii\n${output}`
                 )
                 .setFooter('Creat special pentru comunitatea Leaks România')
                 .setThumbnail('https://i.imgur.com/2OM81ez.png')
@@ -68,21 +68,23 @@ class Help extends Command {
             const _helpEmbed = new RichEmbed()
                 .setTitle(`Comanda ${command.help.name}`)
                 .setColor('#0071ff')
-                .setDescription(
-                    `${command.help.description}\n\nExemplu de folosire: ` +
-                        '**' +
-                        command.help.usage +
-                        '**\nPrescurtări: ' +
-                        '**' +
-                        (command.conf.aliases.length > 0
+                .setDescription(`${command.help.description}\n`)
+                .addField('Exemplu de folosire:', `${command.help.usage}\n`)
+                .addField(
+                    'Prescurtări',
+                    `${
+                        command.conf.aliases.length > 0
                             ? command.conf.aliases.join(', ')
-                            : 'Nu au fost setate prescurtari.') +
-                        '**\nPermisiuni: ' +
-                        '**' +
-                        (command.conf.permissions.length > 0
+                            : 'Nu au fost setate prescurtari.'
+                    }`
+                )
+                .addField(
+                    'Permisiuni',
+                    `${
+                        command.conf.permissions.length > 0
                             ? command.conf.permissions.join(', ')
-                            : 'Nu au fost setate permisiuni.') +
-                        '**'
+                            : 'Nu au fost setate permisiuni.'
+                    }`
                 )
                 .setFooter('Creat special pentru comunitatea Leaks România')
                 .setThumbnail('https://i.imgur.com/2OM81ez.png')

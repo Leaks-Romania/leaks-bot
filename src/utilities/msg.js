@@ -146,4 +146,15 @@ async function promptMessage(message, author, time, validReactions) {
         .then(collected => collected.first() && collected.first().emoji.name);
 }
 
-module.exports = { pushError, getNiceTime, promptMessage };
+var SI_SYMBOL = ['', 'K', 'M', 'G', 'T', 'P', 'E'];
+
+function abbreviateNumber(number) {
+    var tier = (Math.log10(number) / 3) | 0;
+    if (tier == 0) return number;
+    var suffix = SI_SYMBOL[tier];
+    var scale = Math.pow(10, tier * 3);
+    var scaled = number / scale;
+    return scaled.toFixed(1) + suffix;
+}
+
+module.exports = { pushError, getNiceTime, promptMessage, abbreviateNumber };

@@ -1,4 +1,5 @@
 const Commands = require('../extends/commands.js');
+const { abbreviateNumber } = require('../utilities/msg.js');
 const { RichEmbed } = require('discord.js');
 const { stripIndents } = require('common-tags');
 const fetch = require('node-fetch');
@@ -46,15 +47,19 @@ class Instagram extends Commands {
                 .setThumbnail(account.profile_pic_url_hd)
                 .addField(
                     'Profile information',
-                    stripIndents`**- Username:** ${account.username}
-                **- Full name:** ${account.full_name}
-                **- Biography:** ${
-                    account.biography.length == 0 ? 'none' : account.biography
-                }
-                **- Posts:** ${account.edge_owner_to_timeline_media.count}
-                **- Followers:** ${account.edge_followed_by.count}
-                **- Following:** ${account.edge_follow.count}
-                **- Private account:** ${account.is_private ? 'Yes 🔐' : 'Nope 🔓'}`
+                    stripIndents`Username: **${account.username}**
+                    Full name: **${account.full_name}**
+                    Posts: **${abbreviateNumber(
+                        account.edge_owner_to_timeline_media.count
+                    )} **
+                    Followers: **${abbreviateNumber(account.edge_followed_by.count)}**
+                    Following: **${abbreviateNumber(account.edge_follow.count)}**
+                    Private account: **${account.is_private ? 'Yes' : 'No'}**`,
+                    true
+                )
+                .addField(
+                    'Biography',
+                    `**${account.biography.length == 0 ? 'none' : account.biography}**`
                 );
 
             message.channel.send(embed);

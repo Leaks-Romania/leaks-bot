@@ -13,6 +13,14 @@ class Serverinfo extends Command {
     }
 
     async run(message, args) {
+        const verlvl = {
+            0: 'None',
+            1: 'Low',
+            2: 'Medium',
+            3: '(╯°□°）╯︵ ┻━┻',
+            4: '(ノಠ益ಠ)ノ彡┻━┻'
+        };
+
         let serverEmbed = new RichEmbed()
             .setColor('#0071ff')
             .setTitle(`${message.guild.name}`)
@@ -33,6 +41,7 @@ class Serverinfo extends Command {
                 )}`
             )
             .setThumbnail(message.guild.iconURL);
+
         message.channel.send(serverEmbed);
     }
 }
