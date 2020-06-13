@@ -1,4 +1,4 @@
-# Leaks Bot
+# [OUTDATED] Leaks Bot
 
 ---
 
